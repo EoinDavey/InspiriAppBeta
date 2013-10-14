@@ -1,0 +1,13 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="wishlist__remove_button_dimen">25dip</dimen>
+    <dimen name="wishlist_text_view_dimen">200dip</dimen>
+    <dimen name="timer_display_size">50dip</dimen>
+    <dimen name="infoButtonSize">30dip</dimen>
+    <dimen name="message_margin_dimen">45dip</dimen>
+    <dimen name="childline_logo_width">100dip</dimen>
+
+</resources>

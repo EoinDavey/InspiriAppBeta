@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+	    android:id="@+id/WishlistAddLayout"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal" >
+
+    <EditText
+        android:id="@+id/WishListAddText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/WishListAddTextHint"
+        android:focusable="true"
+		android:focusableInTouchMode="true" >
+    </EditText>
+
+    <Button
+        android:id="@+id/WishListButtonAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="wishListCreateNew"
+        android:text="@string/WishListButtonAdd" />
+    </LinearLayout>
+    
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+        android:id="@+id/MainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+    </LinearLayout>
+
+</ScrollView>
+</LinearLayout>

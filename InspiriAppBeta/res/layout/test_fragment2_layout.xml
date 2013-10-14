@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/ChildlineROILayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:background="@drawable/customborder" >
+
+                <Button
+                    android:id="@+id/ContactButtonChildlineROI"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/callicontest"
+                    android:minWidth="64dip"
+                    android:onClick="ChildlineROICall"
+                     />
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="160dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/childlinelogo"
+                    android:contentDescription="@string/ChildlineROILogoDesc"
+                    android:layout_gravity="center_vertical" />
+
+                <ImageView
+                    android:layout_width="60dip"
+                    android:layout_height="50dip"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="10dip"
+                    android:contentDescription="@string/IrelandFlagDesc"
+                    android:src="@drawable/irelandflag" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ChildlineUKLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:background="@drawable/customborder" >
+
+                <Button
+                    android:id="@+id/ContactButtonChildlineUK"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:onClick="ChildlineUKCall"
+                    android:background="@drawable/callicontest"  />
+
+                <ImageView
+                    android:layout_width="160dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/childlineuklogo"
+                    android:contentDescription="@string/ChildlineUKLogoDesc"
+                    android:layout_gravity="center_vertical" />
+                
+                <ImageView
+                    android:layout_width="60dip"
+                    android:layout_height="50dip"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="10dip"
+                    android:contentDescription="@string/UKFlagDesc"
+                    android:src="@drawable/ukflag" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/SamROILayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:background="@drawable/customborder" >
+
+                <Button
+                    android:id="@+id/ContactButtonSamROI"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/callicontest"
+                    android:onClick="SamROICall" />
+
+                <ImageView
+                    android:layout_width="160dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/samaritanslogo"
+                    android:contentDescription="@string/SamaritansLogoDesc"
+                    android:layout_gravity="center_vertical" />
+                
+                <ImageView
+                    android:layout_width="60dip"
+                    android:layout_height="50dip"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="10dip"
+                    android:contentDescription="@string/IrelandFlagDesc"
+                    android:src="@drawable/irelandflag" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/SamUKLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:background="@drawable/customborder" >
+
+                <Button
+                    android:id="@+id/ContactButtonSamUK"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/callicontest"
+                    android:onClick="SamUKCall" />
+
+                <ImageView
+                    android:layout_width="160dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/samaritanslogo"
+                    android:contentDescription="@string/SamaritansLogoDesc"
+                    android:layout_gravity="center_vertical" />
+                
+                <ImageView
+                    android:layout_width="60dip"
+                    android:layout_height="50dip"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="10dip"
+                    android:contentDescription="@string/UKFlagDesc"
+                    android:src="@drawable/ukflag" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/OneLifeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:background="@drawable/customborder" >
+
+                <Button
+                    android:id="@+id/ContactButton1Life"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/callicontest"
+                    android:onClick="OneLifeCall" />
+
+                <ImageView
+                    android:layout_width="160dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/onelifelogo"
+                    android:contentDescription="@string/OneLifeLogoDesc"
+                    android:layout_gravity="center_vertical"
+                     />
+                <ImageView
+                    android:layout_width="60dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/IrelandFlagDesc"
+                    android:src="@drawable/irelandflag" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/PapyrusLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:background="@drawable/customborder" >
+
+                <Button
+                    android:id="@+id/ContactButtonPapyrus"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/callicontest"
+                    android:onClick="PapyrusCall" />
+
+                <ImageView
+                    android:layout_width="160dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/papyruslogo"
+                    android:contentDescription="@string/PapyrusLogoDesc"
+                    android:layout_gravity="center_vertical"
+                     />
+                
+                <ImageView
+                    android:layout_width="60dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/UKFlagDesc"
+                    android:src="@drawable/ukflag" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LGBTHelplineLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/customborder"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp" >
+
+                <Button
+                    android:id="@+id/ContactButtonNSP"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/callicontest"
+                    android:onClick="LGBTHelplineCall" />
+
+                 <ImageView
+                    android:layout_width="160dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/lgbt_logo"
+                    android:contentDescription="@string/LGBTHelplineLogoDesc"
+                    android:layout_gravity="center_vertical"
+                     />
+                 <ImageView
+                    android:layout_width="60dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/IrelandFlagDesc"
+                    android:src="@drawable/irelandflag" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LlgsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/customborder"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp" >
+
+                <Button
+                    android:id="@+id/ContactButtonLifeline"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/callicontest"
+                    android:onClick="LlgsCall" />
+
+                <ImageView
+                    android:layout_width="160dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/llgslogo"
+                    android:contentDescription="@string/LGBTHelplineLogoDesc"
+                    android:layout_gravity="center_vertical"
+                     />
+                
+                <ImageView
+                    android:layout_width="60dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/UKFlagDesc"
+                    android:src="@drawable/ukflag" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ReachoutLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:background="@drawable/customborder" >
+
+                <Button
+                    android:id="@+id/ContactButtonReachout"
+                    android:layout_width="60dp"
+                    android:layout_height="80dip"
+                    android:onClick="ReachoutWeb"
+                    android:background="@drawable/connecticonsmall" />
+
+                <ImageView 
+                    android:layout_width="160dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/reachoutlogo"
+                    android:contentDescription="@string/ReachoutLogoDesc"
+                    android:layout_gravity="center_vertical"
+                    />
+                
+                <ImageView 
+                    android:layout_width="60dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/irelandflag"
+                    android:contentDescription="@string/IrelandFlagDesc"
+                    android:layout_gravity="center_vertical"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/SpunoutLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:background="@drawable/customborder" >
+
+                <Button
+                    android:id="@+id/QuoteRefreshButton"
+                    android:layout_width="60dip"
+                    android:layout_height="80dip"
+                    android:background="@drawable/connecticonsmall"
+                    android:onClick="SpunoutWeb" />
+
+                <ImageView 
+                    android:layout_width="160dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/spunoutlogo"
+                    android:contentDescription="@string/SpunoutLogoDesc"
+                    android:layout_gravity="center_vertical"
+                    />
+                
+                <ImageView 
+                    android:layout_width="60dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/irelandflag"
+                    android:contentDescription="@string/IrelandFlagDesc"
+                    android:layout_gravity="center_vertical"
+                    />
+
+
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/YoungMindsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:background="@drawable/customborder" >
+
+                <Button
+                    android:id="@+id/ContactButtonYoungMinds"
+                    android:layout_width="60dip"
+                    android:layout_height="80dip"
+                    android:background="@drawable/connecticonsmall"
+                    android:onClick="YoungMindsWeb" />
+
+                <ImageView 
+                    android:layout_width="160dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/youngmindslogo"
+                    android:contentDescription="@string/YoungMindsLogoDesc"
+                    android:layout_gravity="center_vertical"
+                    />
+                
+                <ImageView 
+                    android:layout_width="60dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/ukflag"
+                    android:contentDescription="@string/UKFlagDesc"
+                    android:layout_gravity="center_vertical"
+                    />
+
+
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/MindYourHeadLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:background="@drawable/customborder" >
+
+                <Button
+                    android:id="@+id/ContactButtonMindYourHead"
+                    android:layout_width="60dip"
+                    android:layout_height="80dip"
+                    android:background="@drawable/connecticonsmall"
+                    android:onClick="MindYourHeadWeb" />
+
+                <ImageView 
+                    android:layout_width="160dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/mindyourheadlogo"
+                    android:contentDescription="@string/YoungMindsLogoDesc"
+                    android:layout_gravity="center_vertical"
+                    />
+                
+                <ImageView 
+                    android:layout_width="60dip"
+                    android:paddingLeft="10dip"
+                    android:layout_height="50dip"
+                    android:src="@drawable/irelandflag"
+                    android:contentDescription="@string/IrelandFlagDesc"
+                    android:layout_gravity="center_vertical"
+                    />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
