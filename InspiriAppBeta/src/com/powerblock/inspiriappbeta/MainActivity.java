@@ -179,7 +179,7 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 		}
 	}
 	
-	public Boolean ChildlineROICall(View view){
+	public void ChildlineROICall(View view){
 		
 		try{
 			dialogActivate("Ring Childline?", "This is an ROI number, are you sure you want to ring?", 1 ,"1800666666");
@@ -187,7 +187,6 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 			Log.e("custom", "Error");
 		}
 		
-		return true;
 	}
 	
 	public void ChildlineUKCall(View view){
