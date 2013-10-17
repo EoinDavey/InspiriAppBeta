@@ -6,6 +6,7 @@ import java.util.Random;
 
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -45,6 +46,22 @@ public class Fragment1 extends Fragment {
 		pickQuote();
 	}
 	
+	@Override
+	public void onResume(){
+		super.onResume();
+		if(!(mButton instanceof View.OnClickListener)){
+			Log.v("onResume", "called");
+			mButton.setOnClickListener(new View.OnClickListener(){
+
+				@Override
+				public void onClick(View v) {
+					pickQuote();
+				}
+				
+			});
+		}
+	}
+	
 	
 	@Override
 	public void onAttach(Activity activity){
@@ -72,7 +89,7 @@ public class Fragment1 extends Fragment {
 		int randomIndex = randomGen.nextInt(getQuoteCount(list));
 		Quote quote = list.get(randomIndex);
 		mQuoteTextView.setText(quote.getQuote());
-		mNameTextView.setText(quote.getName());
+		mNameTextView.setText("-" + quote.getName());
 		Log.v("Final Quote", quote.getQuote() + " -" + quote.getName());
 	}
 	

@@ -11,11 +11,12 @@
 
         <TextView
             android:id="@+id/Fragment1QuoteTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="200dip"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/Fragment1Text1"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:gravity="center_horizontal" />
 
         <TextView
             android:id="@+id/Fragment1NameTextView"
@@ -27,7 +28,8 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" >
 
             <Button
                 android:id="@+id/button2"
