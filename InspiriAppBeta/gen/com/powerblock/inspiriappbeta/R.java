@@ -946,14 +946,15 @@ containing a value of this type.
         public static final int onelifelogo=0x7f02007b;
         public static final int papyruslogo=0x7f02007c;
         public static final int pencilsmall=0x7f02007d;
-        public static final int reachoutlogo=0x7f02007e;
-        public static final int samaritanslogo=0x7f02007f;
-        public static final int spunoutlogo=0x7f020080;
-        public static final int ukflag=0x7f020081;
-        public static final int wastebinclosedsmalltest=0x7f020082;
-        public static final int wastebinsmalltest=0x7f020083;
-        public static final int wishlistremovebuttonselector=0x7f020084;
-        public static final int youngmindslogo=0x7f020085;
+        public static final int postit=0x7f02007e;
+        public static final int reachoutlogo=0x7f02007f;
+        public static final int samaritanslogo=0x7f020080;
+        public static final int spunoutlogo=0x7f020081;
+        public static final int ukflag=0x7f020082;
+        public static final int wastebinclosedsmalltest=0x7f020083;
+        public static final int wastebinsmalltest=0x7f020084;
+        public static final int wishlistremovebuttonselector=0x7f020085;
+        public static final int youngmindslogo=0x7f020086;
     }
     public static final class id {
         public static final int ChildlineROILayout=0x7f05003e;

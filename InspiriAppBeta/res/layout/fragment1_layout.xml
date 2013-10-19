@@ -9,22 +9,36 @@
         android:orientation="vertical"
         android:layout_centerInParent="true" >
 
-        <TextView
-            android:id="@+id/Fragment1QuoteTextView"
-            android:layout_width="200dip"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/Fragment1Text1"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:gravity="center_horizontal" />
+            android:orientation="vertical"
+            android:background="@drawable/postit" >
 
-        <TextView
-            android:id="@+id/Fragment1NameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="@string/Fragment1NameTextView"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            <!--  android:textAppearance="?android:attr/textAppearanceLarge" -->
+            <TextView
+                android:id="@+id/Fragment1QuoteTextView"
+                android:layout_width="200dip"
+                android:layout_height="180dp"
+                android:gravity="center"
+                android:text="@string/Fragment1Text1"
+               
+                android:paddingRight="15dip"
+                android:paddingLeft="15dip"
+                android:paddingTop="55dip"
+                android:paddingBottom="10dip" />
+
+            <TextView
+                android:id="@+id/Fragment1NameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="30dip"
+                android:text="@string/Fragment1NameTextView"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_gravity="right"
+                android:paddingRight="15dip"
+                android:paddingBottom="10dip" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
