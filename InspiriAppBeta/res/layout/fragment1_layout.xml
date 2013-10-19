@@ -16,17 +16,18 @@
             android:background="@drawable/postit" >
 
             <!--  android:textAppearance="?android:attr/textAppearanceLarge" -->
+
             <TextView
                 android:id="@+id/Fragment1QuoteTextView"
                 android:layout_width="200dip"
                 android:layout_height="180dp"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center"
-                android:text="@string/Fragment1Text1"
-               
-                android:paddingRight="15dip"
+                android:paddingBottom="10dip"
                 android:paddingLeft="15dip"
+                android:paddingRight="15dip"
                 android:paddingTop="55dip"
-                android:paddingBottom="10dip" />
+                android:text="@string/Fragment1Text1" />
 
             <TextView
                 android:id="@+id/Fragment1NameTextView"
