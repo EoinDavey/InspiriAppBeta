@@ -48,19 +48,16 @@ public class Fragment1 extends Fragment {
 	@Override
 	public void onResume(){
 		super.onResume();
-		if(!(mButton instanceof View.OnClickListener)){
-			Log.v("onResume", "called");
-			mButton.setOnClickListener(new View.OnClickListener(){
-
-				@Override
-				public void onClick(View v) {
-					pickQuote();
-				}
+		Log.v("onResume", "called");
+		/*mButton.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				pickQuote();
+			}
 				
-			});
-		}
+		}); */
+		
 	}
-	
 	
 	@Override
 	public void onAttach(Activity activity){
