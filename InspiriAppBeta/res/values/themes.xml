@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    
+    <style name="CustomActionBar"
+        parent="@style/Theme.Sherlock.Light.DarkActionBar">
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:actionBarStyle" tools:targetApi="11">@style/MyActionBar</item>
+        <item name="android:actionBarTabStyle" tools:targetApi="11">@style/MyActionBarTabs</item>
+        <item name="actionBarTabStyle">@style/MyActionBarTabs</item>
+    </style>
+        
+    <style name="MyActionBar" parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/actionbarbackground</item>
+        <item name="background">@drawable/actionbarbackground</item>
+    </style>
+    
+    <style name="MyActionBarTabs" parent="Widget.Sherlock.Light.ActionBar.TabBar">
+        <item name="android:background">#0000FF</item>
+        <item name="background">#0000FF</item>
+    </style>
+    
+</resources>

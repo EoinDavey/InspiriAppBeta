@@ -27,7 +27,7 @@
                     android:id="@+id/ContactButtonChildlineROI"
                     android:layout_width="60dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/callicontest"
+                    android:background="@drawable/callicon"
                     android:minWidth="64dip"
                     android:onClick="ChildlineROICall"
                      />
@@ -66,7 +66,7 @@
                     android:layout_width="60dp"
                     android:layout_height="80dp"
                     android:onClick="ChildlineUKCall"
-                    android:background="@drawable/callicontest"  />
+                    android:background="@drawable/callicon"  />
 
                 <ImageView
                     android:layout_width="160dip"
@@ -84,6 +84,7 @@
                     android:contentDescription="@string/UKFlagDesc"
                     android:src="@drawable/ukflag" />
 
+
             </LinearLayout>
 
             <LinearLayout
@@ -100,7 +101,7 @@
                     android:id="@+id/ContactButtonSamROI"
                     android:layout_width="60dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/callicontest"
+                    android:background="@drawable/callicon"
                     android:onClick="SamROICall" />
 
                 <ImageView
@@ -135,7 +136,7 @@
                     android:id="@+id/ContactButtonSamUK"
                     android:layout_width="60dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/callicontest"
+                    android:background="@drawable/callicon"
                     android:onClick="SamUKCall" />
 
                 <ImageView
@@ -313,7 +314,7 @@
                     android:layout_width="60dp"
                     android:layout_height="80dip"
                     android:onClick="ReachoutWeb"
-                    android:background="@drawable/connecticonsmall" />
+                    android:background="@drawable/wifiicon" />
 
                 <ImageView 
                     android:layout_width="160dip"
