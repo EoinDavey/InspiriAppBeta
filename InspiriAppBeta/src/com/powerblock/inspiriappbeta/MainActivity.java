@@ -45,6 +45,7 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 	ViewPager mViewPager;
 	
 	Fragment4 fragment4;
+	Fragment1 frag1;
 	
 	final Context context = this;
 	

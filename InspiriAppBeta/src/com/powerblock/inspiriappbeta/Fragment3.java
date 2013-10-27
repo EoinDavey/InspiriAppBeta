@@ -37,6 +37,7 @@ public class Fragment3 extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		super.onCreateView(inflater, container,savedInstanceState);
 		
+		
 		res = getResources();
 		displayFloatDimen = res.getDimension(R.dimen.timer_display_size);
 		messageTextViewMargin = res.getDimension(R.dimen.message_margin_dimen);

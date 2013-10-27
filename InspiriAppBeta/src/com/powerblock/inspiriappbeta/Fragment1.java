@@ -30,9 +30,13 @@ public class Fragment1 extends Fragment {
 		}
 	};
 	
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-		return inflater.inflate(R.layout.fragment1_layout, container, false);
+		View v = inflater.inflate(R.layout.fragment1_layout, container, false);
+		mButton =(Button) v.findViewById(R.id.QuoteRefreshButton);
+		mButton.setOnClickListener(listener);
+		return v;
 	}
 	
 	@Override
@@ -49,7 +53,7 @@ public class Fragment1 extends Fragment {
 	@Override
 	public void onResume(){
 		super.onResume();
-		if(mActivity == null){
+		/*if(mActivity == null){
 			Log.v("Activity","null");
 		}
 		mButton = (Button) mActivity.findViewById(R.id.QuoteRefreshButton);
@@ -57,7 +61,7 @@ public class Fragment1 extends Fragment {
 			Log.v("Button", "null");
 		}
 		Log.v("Frag1 onResume", "called");
-		mButton.setOnClickListener(listener);
+		mButton.setOnClickListener(listener);*/
 	}
 	
 	@Override
