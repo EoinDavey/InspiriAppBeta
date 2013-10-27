@@ -37,7 +37,7 @@
                     android:layout_width="160dip"
                     android:paddingLeft="10dip"
                     android:layout_height="50dip"
-                    android:src="@drawable/childlinelogo"
+                    android:src="@drawable/childlinelayer"
                     android:contentDescription="@string/ChildlineROILogoDesc"
                     android:layout_gravity="center_vertical" />
 
@@ -72,7 +72,7 @@
                     android:layout_width="160dip"
                     android:paddingLeft="10dip"
                     android:layout_height="50dip"
-                    android:src="@drawable/childlineuklogo"
+                    android:src="@drawable/childlineuklayer"
                     android:contentDescription="@string/ChildlineUKLogoDesc"
                     android:layout_gravity="center_vertical" />
                 
@@ -107,7 +107,7 @@
                     android:layout_width="160dip"
                     android:paddingLeft="10dip"
                     android:layout_height="50dip"
-                    android:src="@drawable/samaritanslogo"
+                    android:src="@drawable/samaritanslayer"
                     android:contentDescription="@string/SamaritansLogoDesc"
                     android:layout_gravity="center_vertical" />
                 
@@ -142,7 +142,7 @@
                     android:layout_width="160dip"
                     android:paddingLeft="10dip"
                     android:layout_height="50dip"
-                    android:src="@drawable/samaritanslogo"
+                    android:src="@drawable/samaritanslayer"
                     android:contentDescription="@string/SamaritansLogoDesc"
                     android:layout_gravity="center_vertical" />
                 
@@ -177,7 +177,7 @@
                     android:layout_width="160dip"
                     android:paddingLeft="10dip"
                     android:layout_height="50dip"
-                    android:src="@drawable/onelifelogo"
+                    android:src="@drawable/onelifelayer"
                     android:contentDescription="@string/OneLifeLogoDesc"
                     android:layout_gravity="center_vertical"
                      />
@@ -212,7 +212,7 @@
                     android:layout_width="160dip"
                     android:paddingLeft="10dip"
                     android:layout_height="50dip"
-                    android:src="@drawable/papyruslogo"
+                    android:src="@drawable/papyruslayer"
                     android:contentDescription="@string/PapyrusLogoDesc"
                     android:layout_gravity="center_vertical"
                      />
@@ -248,7 +248,7 @@
                     android:layout_width="160dip"
                     android:paddingLeft="10dip"
                     android:layout_height="50dip"
-                    android:src="@drawable/lgbt_logo"
+                    android:src="@drawable/lgbt_layer"
                     android:contentDescription="@string/LGBTHelplineLogoDesc"
                     android:layout_gravity="center_vertical"
                      />
@@ -283,7 +283,7 @@
                     android:layout_width="160dip"
                     android:paddingLeft="10dip"
                     android:layout_height="50dip"
-                    android:src="@drawable/llgslogo"
+                    android:src="@drawable/llgslayer"
                     android:contentDescription="@string/LGBTHelplineLogoDesc"
                     android:layout_gravity="center_vertical"
                      />
@@ -319,7 +319,7 @@
                     android:layout_width="160dip"
                     android:paddingLeft="10dip"
                     android:layout_height="50dip"
-                    android:src="@drawable/reachoutlogo"
+                    android:src="@drawable/reachoutlayer"
                     android:contentDescription="@string/ReachoutLogoDesc"
                     android:layout_gravity="center_vertical"
                     />
@@ -356,7 +356,7 @@
                     android:layout_width="160dip"
                     android:paddingLeft="10dip"
                     android:layout_height="50dip"
-                    android:src="@drawable/spunoutlogo"
+                    android:src="@drawable/spunoutlayer"
                     android:contentDescription="@string/SpunoutLogoDesc"
                     android:layout_gravity="center_vertical"
                     />
@@ -394,7 +394,7 @@
                     android:layout_width="160dip"
                     android:paddingLeft="10dip"
                     android:layout_height="50dip"
-                    android:src="@drawable/youngmindslogo"
+                    android:src="@drawable/youngmindslayer"
                     android:contentDescription="@string/YoungMindsLogoDesc"
                     android:layout_gravity="center_vertical"
                     />
@@ -432,7 +432,7 @@
                     android:layout_width="160dip"
                     android:paddingLeft="10dip"
                     android:layout_height="50dip"
-                    android:src="@drawable/mindyourheadlogo"
+                    android:src="@drawable/mindyourheadlayer"
                     android:contentDescription="@string/YoungMindsLogoDesc"
                     android:layout_gravity="center_vertical"
                     />

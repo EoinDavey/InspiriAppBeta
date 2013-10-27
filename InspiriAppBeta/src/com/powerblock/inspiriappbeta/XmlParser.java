@@ -35,7 +35,6 @@ public class XmlParser {
 				}
 				
 				String name = parser.getName();
-				Log.v("XmlParser", name);
 				if(name.equalsIgnoreCase("Quote")){
 					list.add(readEntry(parser));
 				}
@@ -55,7 +54,6 @@ public class XmlParser {
 		parser.require(XmlPullParser.START_TAG, null, "Quote");
 		String name = parser.getAttributeValue(null, "name");
 		String quoteText = parser.nextText();
-		Log.v("readEntry", quoteText + " -" + name);
 		Quote quote = new Quote(quoteText, name);
 		return quote;
 	}

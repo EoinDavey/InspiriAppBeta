@@ -22,6 +22,13 @@ public class Fragment1 extends Fragment {
 	private Button mButton;
 	private TextView mQuoteTextView;
 	private TextView mNameTextView;
+	private View.OnClickListener listener = new View.OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			pickQuote();
+		}
+	};
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -35,28 +42,27 @@ public class Fragment1 extends Fragment {
 		mNameTextView = (TextView) mActivity.findViewById(R.id.Fragment1NameTextView);
 		mButton = (Button) mActivity.findViewById(R.id.QuoteRefreshButton);
 		Log.v("mButton", "setting on click listener");
-		mButton.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				pickQuote();
-			}
-		});
+		//mButton.setOnClickListener(listener);
 		pickQuote();
 	}
 	
 	@Override
 	public void onResume(){
 		super.onResume();
-		Log.v("onResume", "called");
-		/*mButton.setOnClickListener(new View.OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				pickQuote();
-			}
-				
-		}); */
-		
+		if(mActivity == null){
+			Log.v("Activity","null");
+		}
+		mButton = (Button) mActivity.findViewById(R.id.QuoteRefreshButton);
+		if(mButton == null){
+			Log.v("Button", "null");
+		}
+		Log.v("Frag1 onResume", "called");
+		mButton.setOnClickListener(listener);
+	}
+	
+	@Override
+	public void onPause(){
+		super.onPause();
 	}
 	
 	@Override
