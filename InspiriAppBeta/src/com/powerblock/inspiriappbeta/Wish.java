@@ -40,6 +40,7 @@ public class Wish implements Serializable{
 	private float textViewDimenFloat;
 	private int textViewDimen;
 	private int wishlistButtonDimen;
+	private int heightDimen;
 
 	public Wish(ViewGroup viewgroup, FragmentActivity c, DatabaseHandler db){
 		this.context = c;
@@ -48,6 +49,8 @@ public class Wish implements Serializable{
 		this.removeButtonBackground = res.getDrawable(R.drawable.wishlistremovebuttonselector);
 		this.editButtonBackground = res.getDrawable(R.drawable.pencilsmall);
 		this.wishlistRemoveButtonDimenFloat = res.getDimension(R.dimen.wishlist__remove_button_dimen);
+		float heightFloat = res.getDimension(R.dimen.height_dimen);
+		this.heightDimen = Math.round(heightFloat);
 		this.wishlistButtonDimen = Math.round(wishlistRemoveButtonDimenFloat);
 		this.textViewDimenFloat = res.getDimension(R.dimen.wishlist_text_view_dimen);
 		this.textViewDimen = Math.round(textViewDimenFloat);
@@ -75,7 +78,7 @@ public class Wish implements Serializable{
 	private void build() {
 		//Declare the main linear layout
 		this.mainLinearLayout = new LinearLayout(context);
-		mainLinearLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+		mainLinearLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, heightDimen));
 		mainLinearLayout.setOrientation(LAYOUT_ORIENTATION);
 		//Instantiate the TextView
 		this.textView = new TextView(this.context);

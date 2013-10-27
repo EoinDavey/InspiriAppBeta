@@ -41,7 +41,7 @@ public class Fragment3 extends Fragment {
 		displayFloatDimen = res.getDimension(R.dimen.timer_display_size);
 		messageTextViewMargin = res.getDimension(R.dimen.message_margin_dimen);
 		infoButtonDimen = res.getDimension(R.dimen.infoButtonSize);
-		infoButtonDrawable = res.getDrawable(R.drawable.infobutton);
+		infoButtonDrawable = res.getDrawable(android.R.drawable.ic_menu_info_details);
 		
 		//Set up relativeLayout Params
 		RelativeLayout.LayoutParams timerTextViewLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);

@@ -39,7 +39,7 @@
                     android:layout_height="50dip"
                     android:src="@drawable/childlinelayer"
                     android:contentDescription="@string/ChildlineROILogoDesc"
-                    android:layout_gravity="center_vertical" />
+                    android:layout_gravity="center" />
 
                 <ImageView
                     android:layout_width="60dip"
@@ -171,7 +171,7 @@
                     android:id="@+id/ContactButton1Life"
                     android:layout_width="60dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/callicontest"
+                    android:background="@drawable/callicon"
                     android:onClick="OneLifeCall" />
 
                 <ImageView
@@ -206,7 +206,7 @@
                     android:id="@+id/ContactButtonPapyrus"
                     android:layout_width="60dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/callicontest"
+                    android:background="@drawable/callicon"
                     android:onClick="PapyrusCall" />
 
                 <ImageView
@@ -242,7 +242,7 @@
                     android:id="@+id/ContactButtonNSP"
                     android:layout_width="60dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/callicontest"
+                    android:background="@drawable/callicon"
                     android:onClick="LGBTHelplineCall" />
 
                  <ImageView
@@ -277,7 +277,7 @@
                     android:id="@+id/ContactButtonLifeline"
                     android:layout_width="60dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/callicontest"
+                    android:background="@drawable/callicon"
                     android:onClick="LlgsCall" />
 
                 <ImageView
@@ -350,7 +350,7 @@
                     android:id="@+id/QuoteRefreshButton"
                     android:layout_width="60dip"
                     android:layout_height="80dip"
-                    android:background="@drawable/connecticonsmall"
+                    android:background="@drawable/wifiicon"
                     android:onClick="SpunoutWeb" />
 
                 <ImageView 
@@ -388,7 +388,7 @@
                     android:id="@+id/ContactButtonYoungMinds"
                     android:layout_width="60dip"
                     android:layout_height="80dip"
-                    android:background="@drawable/connecticonsmall"
+                    android:background="@drawable/wifiicon"
                     android:onClick="YoungMindsWeb" />
 
                 <ImageView 
@@ -426,7 +426,7 @@
                     android:id="@+id/ContactButtonMindYourHead"
                     android:layout_width="60dip"
                     android:layout_height="80dip"
-                    android:background="@drawable/connecticonsmall"
+                    android:background="@drawable/wifiicon"
                     android:onClick="MindYourHeadWeb" />
 
                 <ImageView 

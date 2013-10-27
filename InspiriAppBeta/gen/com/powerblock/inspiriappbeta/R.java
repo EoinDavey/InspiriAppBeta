@@ -813,7 +813,7 @@ containing a value of this type.
          */
         public static final int activity_horizontal_margin=0x7f080011;
         public static final int activity_vertical_margin=0x7f080012;
-        public static final int childline_logo_width=0x7f080018;
+        public static final int height_dimen=0x7f080018;
         public static final int infoButtonSize=0x7f080016;
         public static final int message_margin_dimen=0x7f080017;
         public static final int timer_display_size=0x7f080015;

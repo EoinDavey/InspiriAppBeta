@@ -6,8 +6,8 @@
     <dimen name="wishlist__remove_button_dimen">25dip</dimen>
     <dimen name="wishlist_text_view_dimen">200dip</dimen>
     <dimen name="timer_display_size">50dip</dimen>
-    <dimen name="infoButtonSize">30dip</dimen>
+    <dimen name="infoButtonSize">50dip</dimen>
     <dimen name="message_margin_dimen">45dip</dimen>
-    <dimen name="childline_logo_width">100dip</dimen>
+    <dimen name="height_dimen">48dip</dimen>
 
 </resources>

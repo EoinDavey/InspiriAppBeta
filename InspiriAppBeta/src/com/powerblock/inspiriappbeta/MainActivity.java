@@ -66,7 +66,7 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 		// Set up the action bar.
 		final com.actionbarsherlock.app.ActionBar actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(com.actionbarsherlock.app.ActionBar.NAVIGATION_MODE_TABS);
-		actionBar.setDisplayShowHomeEnabled(false);
+		//actionBar.setDisplayShowHomeEnabled(false);
 		//actionBar.setDisplayShowTitleEnabled(false);
 		//Set up the Fragment 4
 		fragment4 = new Fragment4();

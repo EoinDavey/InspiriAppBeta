@@ -134,7 +134,7 @@ int dimen abs__search_view_text_min_width 0x7f08000e
 int dimen action_button_min_width 0x7f080010
 int dimen activity_horizontal_margin 0x7f080011
 int dimen activity_vertical_margin 0x7f080012
-int dimen childline_logo_width 0x7f080018
+int dimen height_dimen 0x7f080018
 int dimen infoButtonSize 0x7f080016
 int dimen message_margin_dimen 0x7f080017
 int dimen timer_display_size 0x7f080015
