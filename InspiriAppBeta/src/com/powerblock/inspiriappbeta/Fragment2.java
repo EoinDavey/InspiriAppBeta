@@ -10,6 +10,8 @@ public class Fragment2 extends Fragment {
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-		return inflater.inflate(R.layout.test_fragment2_layout, container, false);
+		View v = inflater.inflate(R.layout.test_fragment2_layout, container, false);
+		v.setBackgroundColor(00000000);
+		return v;
 	}
 }

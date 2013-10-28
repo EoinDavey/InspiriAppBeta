@@ -36,6 +36,7 @@ public class Fragment1 extends Fragment {
 		View v = inflater.inflate(R.layout.fragment1_layout, container, false);
 		mButton =(Button) v.findViewById(R.id.QuoteRefreshButton);
 		mButton.setOnClickListener(listener);
+		v.setBackgroundColor(00000000);
 		return v;
 	}
 	

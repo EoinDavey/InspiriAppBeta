@@ -108,6 +108,7 @@ public class Fragment3 extends Fragment {
 		layout.addView(infoButton);
 		//layout.addView(messageTextView);
 		//View v = inflater.inflate(R.layout.fragment3_layout, container, false);
+		layout.setBackgroundColor(00000000);
 		return layout;
 	}
 	

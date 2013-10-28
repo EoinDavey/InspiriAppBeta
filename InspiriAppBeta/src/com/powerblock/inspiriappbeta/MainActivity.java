@@ -64,8 +64,6 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 	static final String WISHLIST_VISIBLE_2 = null;
 	static final String WISHLIST_VISIBLE_3 = null;
 	
-	private Uri targetUri;
-	
 	ContentValues values = new ContentValues();
 
 	@Override
@@ -140,7 +138,8 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 			try{
 				bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
 				BitmapDrawable bdraw = new BitmapDrawable(getResources(), bitmap);
-				if(Build.VERSION.SDK_INT < 16){
+				//fragment4.setBackground(bdraw);
+				if(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN){
 					mViewPager.setBackgroundDrawable(bdraw);
 				} else {
 					mViewPager.setBackground(bdraw);

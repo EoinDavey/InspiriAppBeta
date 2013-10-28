@@ -19,10 +19,10 @@ public class Fragment4 extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
 		View v = inflater.inflate(R.layout.fragment4_layout, container, false);
+		v.setBackgroundColor(00000000);
 		return v;
 	}
-	
-	
+		
 	@Override
 	public void onStart(){
 		super.onStart();
