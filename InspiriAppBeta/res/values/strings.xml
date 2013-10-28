@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">InspiriAppBeta</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Set Background</string>
     <string name="title_section1">Quotes</string>
     <string name="title_section2">Contacts</string>
     <string name="title_section3">Timer</string>

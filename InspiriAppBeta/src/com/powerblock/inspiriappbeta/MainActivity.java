@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.ActionBar.TabListener;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
 
 public class MainActivity extends SherlockFragmentActivity implements
 com.actionbarsherlock.app.ActionBar.TabListener {
@@ -102,6 +103,13 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener((TabListener) this));
 		}
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu){
+		super.onCreateOptionsMenu(menu);
+		getSupportMenuInflater().inflate(R.menu.main, menu);
+		return true;
 	}
 
 	public void onTabSelected(Tab tab,

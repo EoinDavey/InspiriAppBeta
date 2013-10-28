@@ -1080,7 +1080,7 @@ containing a value of this type.
         public static final int abs__title=0x7f05001b;
         public static final int abs__titleDivider=0x7f05001c;
         public static final int abs__up=0x7f05000b;
-        public static final int action_settings=0x7f050056;
+        public static final int action_backgroun=0x7f050056;
         public static final int button2=0x7f050036;
         public static final int disableHome=0x7f050009;
         public static final int edit_query=0x7f050027;

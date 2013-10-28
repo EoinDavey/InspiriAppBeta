@@ -397,7 +397,7 @@ int id abs__textButton 0x7f050013
 int id abs__title 0x7f05001b
 int id abs__titleDivider 0x7f05001c
 int id abs__up 0x7f05000b
-int id action_settings 0x7f050056
+int id action_backgroun 0x7f050056
 int id button2 0x7f050036
 int id disableHome 0x7f050009
 int id edit_query 0x7f050027
