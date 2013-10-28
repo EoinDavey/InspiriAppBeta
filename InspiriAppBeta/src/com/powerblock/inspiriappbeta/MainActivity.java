@@ -1,14 +1,20 @@
 package com.powerblock.inspiriappbeta;
 
+import java.io.FileNotFoundException;
 import java.util.Locale;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -26,6 +32,7 @@ import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.ActionBar.TabListener;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 
 public class MainActivity extends SherlockFragmentActivity implements
 com.actionbarsherlock.app.ActionBar.TabListener {
@@ -56,6 +63,8 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 	static final String WISHLIST_VISIBLE_1 = null;
 	static final String WISHLIST_VISIBLE_2 = null;
 	static final String WISHLIST_VISIBLE_3 = null;
+	
+	private Uri targetUri;
 	
 	ContentValues values = new ContentValues();
 
@@ -110,6 +119,36 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 		super.onCreateOptionsMenu(menu);
 		getSupportMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item){
+		super.onOptionsItemSelected(item);
+		Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+		startActivityForResult(intent, 0);
+		return true;
+	}
+	
+	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+	@SuppressWarnings("deprecation")
+	@Override
+	protected void onActivityResult(int requestcode, int resultcode, Intent intent){
+		super.onActivityResult(requestcode, resultcode, intent);
+		if(resultcode == RESULT_OK){
+			Uri targetUri = intent.getData();
+			Bitmap bitmap;
+			try{
+				bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
+				BitmapDrawable bdraw = new BitmapDrawable(getResources(), bitmap);
+				if(Build.VERSION.SDK_INT < 16){
+					mViewPager.setBackgroundDrawable(bdraw);
+				} else {
+					mViewPager.setBackground(bdraw);
+				}
+			} catch(FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	public void onTabSelected(Tab tab,
