@@ -41,11 +41,13 @@ public class Wish implements Serializable{
 	private int textViewDimen;
 	private int wishlistButtonDimen;
 	private int heightDimen;
+	private int layoutColour;
 
 	public Wish(ViewGroup viewgroup, FragmentActivity c, DatabaseHandler db){
 		this.context = c;
 		this.parentViewGroup = viewgroup;
 		this.res = this.context.getResources();
+		this.layoutColour = res.getColor(R.color.wishlistbackground);
 		this.removeButtonBackground = res.getDrawable(R.drawable.wishlistremovebuttonselector);
 		this.editButtonBackground = res.getDrawable(R.drawable.pencilsmall);
 		this.wishlistRemoveButtonDimenFloat = res.getDimension(R.dimen.wishlist__remove_button_dimen);
@@ -80,6 +82,7 @@ public class Wish implements Serializable{
 		this.mainLinearLayout = new LinearLayout(context);
 		mainLinearLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, heightDimen));
 		mainLinearLayout.setOrientation(LAYOUT_ORIENTATION);
+		mainLinearLayout.setBackgroundColor(layoutColour);
 		//Instantiate the TextView
 		this.textView = new TextView(this.context);
 		textView.setLayoutParams(new LayoutParams(textViewDimen, LayoutParams.WRAP_CONTENT));

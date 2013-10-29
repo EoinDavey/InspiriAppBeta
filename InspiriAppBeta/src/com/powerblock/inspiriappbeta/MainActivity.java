@@ -154,8 +154,6 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 		startActivityForResult(imageEditIntent, ImageEditor.REQUEST_CODE);
 	}
 	
-	@SuppressWarnings("deprecation")
-	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	public void getBackgroundImage(int i){
 		String root = Environment.getExternalStorageDirectory().toString();
 		File myDir = new File(root + "/InspiriAppBackground");

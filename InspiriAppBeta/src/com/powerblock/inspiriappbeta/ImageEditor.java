@@ -7,12 +7,12 @@ import java.io.FileOutputStream;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
@@ -38,8 +38,9 @@ public class ImageEditor extends SherlockActivity {
 		try{
 			bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(target));
 			mBitmap = bitmap;
-			BitmapDrawable bdraw = new BitmapDrawable(getResources(), bitmap);
-			mImageView.setImageDrawable(bdraw);
+			int size = bitmap.getRowBytes() * bitmap.getHeight();
+			Toast.makeText(this, String.valueOf(size), Toast.LENGTH_LONG).show();
+			mImageView.setImageBitmap(bitmap);
 		} catch(FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -74,9 +75,12 @@ public class ImageEditor extends SherlockActivity {
 	public void rotate(){
 		Bitmap bmpOriginal = mBitmap;
 		Bitmap bmResult = Bitmap.createBitmap(bmpOriginal.getWidth(), bmpOriginal.getHeight(), Bitmap.Config.ARGB_8888);
-		Canvas tempCanvas = new Canvas(bmResult);
-		tempCanvas.rotate(90, bmpOriginal.getWidth()/2, bmpOriginal.getHeight()/2);
-		tempCanvas.drawBitmap(bmpOriginal, 0, 0, null);
+		Matrix matrix = new Matrix();
+		matrix.postRotate(90, bmpOriginal.getWidth()/2, bmpOriginal.getHeight()/2);
+		bmResult = Bitmap.createBitmap(bmpOriginal, 0, 0, bmpOriginal.getWidth(), bmpOriginal.getHeight(), matrix, true);
+		//Canvas tempCanvas = new Canvas(bmResult);
+		//tempCanvas.rotate(90, bmpOriginal.getWidth()/2, bmpOriginal.getHeight()/2);
+		//tempCanvas.drawBitmap(bmpOriginal, 0, 0, null);
 		mBitmap = bmResult;
 		mImageView.setImageBitmap(bmResult);
 	}
