@@ -65,6 +65,7 @@ public class ImageEditor extends SherlockActivity {
 			rotate();
 			break;
 		case R.id.item3:
+			finish(RESULT_CANCELED);
 			break;
 		}
 		return true;
@@ -86,6 +87,9 @@ public class ImageEditor extends SherlockActivity {
 			saveImage();
 			data.putExtra("File location", BACKGROUND_FILE_NAME);
 			setResult(RESULT_OK, data);
+			finish();
+		} else if(resultcode == RESULT_CANCELED){
+			setResult(RESULT_CANCELED);
 			finish();
 		}
 	}

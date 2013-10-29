@@ -1,7 +1,6 @@
 package com.powerblock.inspiriappbeta;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.util.Locale;
 
 import android.annotation.TargetApi;
@@ -112,6 +111,7 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener((TabListener) this));
 		}
+		getBackgroundImage(1);
 	}
 	
 	@Override
@@ -139,7 +139,7 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 				imageEditorOpen(intent);
 				break;
 			case 1:
-				getBackgroundImage();
+				getBackgroundImage(0);
 				break;
 			}
 		}
@@ -155,12 +155,14 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 	
 	@SuppressWarnings("deprecation")
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-	public void getBackgroundImage(){
+	public void getBackgroundImage(int i){
 		String root = Environment.getExternalStorageDirectory().toString();
 		File myDir = new File(root + "/InspiriAppBackground");
 		File file = new File(myDir, ImageEditor.BACKGROUND_FILE_NAME);
-		if(!file.exists()){
+		if(!file.exists() && i == 0){
 			Toast.makeText(this, "Error while retrieving image", Toast.LENGTH_LONG).show();
+			return;
+		} else if(!file.exists() && i == 0){
 			return;
 		}
 		BitmapFactory.Options options = new BitmapFactory.Options();
