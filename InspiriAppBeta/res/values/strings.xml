@@ -29,6 +29,9 @@
     <string name="YoungMindsLogoDesc">Youngminds.org.uk logo for contacts list</string>
     <string name="MindYourHeadLogoDesc">Mindyourheadstudy.com logo for contacts list</string>
     <string name="Fragment1NameTextView">-Name</string>
+    <string name="imageEditorRotateButton">Rotate</string>
+    <string name="imageEditorAcceptButton">Accept</string>
+    <string name="imageEditorCancelButton">Cancel</string>
     
 
 </resources>

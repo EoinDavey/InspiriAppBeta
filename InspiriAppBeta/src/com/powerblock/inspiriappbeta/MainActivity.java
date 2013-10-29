@@ -1,6 +1,7 @@
 package com.powerblock.inspiriappbeta;
 
-import java.io.FileNotFoundException;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.Locale;
 
 import android.annotation.TargetApi;
@@ -13,9 +14,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -53,7 +56,6 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 	ViewPager mViewPager;
 	
 	Fragment4 fragment4;
-	Fragment1 frag1;
 	
 	final Context context = this;
 	
@@ -128,25 +130,47 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 	}
 	
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-	@SuppressWarnings("deprecation")
 	@Override
 	protected void onActivityResult(int requestcode, int resultcode, Intent intent){
 		super.onActivityResult(requestcode, resultcode, intent);
 		if(resultcode == RESULT_OK){
-			Uri targetUri = intent.getData();
-			Bitmap bitmap;
-			try{
-				bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
-				BitmapDrawable bdraw = new BitmapDrawable(getResources(), bitmap);
-				//fragment4.setBackground(bdraw);
-				if(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN){
-					mViewPager.setBackgroundDrawable(bdraw);
-				} else {
-					mViewPager.setBackground(bdraw);
-				}
-			} catch(FileNotFoundException e) {
-				e.printStackTrace();
+			switch(requestcode){
+			case 0:
+				imageEditorOpen(intent);
+				break;
+			case 1:
+				getBackgroundImage();
+				break;
 			}
+		}
+	}
+	
+	private void imageEditorOpen(Intent intent){
+		Uri targetUri = intent.getData();
+		String uriString = targetUri.toString();
+		Intent imageEditIntent = new Intent(this, ImageEditor.class);
+		imageEditIntent.putExtra(ImageEditor.IMAGE_LOC_TAG, uriString);
+		startActivityForResult(imageEditIntent, ImageEditor.REQUEST_CODE);
+	}
+	
+	@SuppressWarnings("deprecation")
+	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+	public void getBackgroundImage(){
+		String root = Environment.getExternalStorageDirectory().toString();
+		File myDir = new File(root + "/InspiriAppBackground");
+		File file = new File(myDir, ImageEditor.BACKGROUND_FILE_NAME);
+		if(!file.exists()){
+			Toast.makeText(this, "Error while retrieving image", Toast.LENGTH_LONG).show();
+			return;
+		}
+		BitmapFactory.Options options = new BitmapFactory.Options();
+		options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+		Bitmap bitmap = BitmapFactory.decodeFile(root + "/InspiriAppBackground/"+ImageEditor.BACKGROUND_FILE_NAME, options);
+		Drawable d = new BitmapDrawable(getResources(), bitmap);
+		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN){
+			mViewPager.setBackgroundDrawable(d);
+		} else {
+			mViewPager.setBackground(d);
 		}
 	}
 

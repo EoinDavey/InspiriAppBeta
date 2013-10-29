@@ -1010,10 +1010,10 @@ containing a value of this type.
         public static final int youngmindslogo=0x7f0200ba;
     }
     public static final class id {
-        public static final int ChildlineROILayout=0x7f05003f;
+        public static final int ChildlineROILayout=0x7f050040;
         public static final int ChildlineUKLayout=0x7f050042;
         public static final int ContactButton1Life=0x7f050049;
-        public static final int ContactButtonChildlineROI=0x7f050040;
+        public static final int ContactButtonChildlineROI=0x7f050041;
         public static final int ContactButtonChildlineUK=0x7f050043;
         public static final int ContactButtonLifeline=0x7f05004f;
         public static final int ContactButtonMindYourHead=0x7f050056;
@@ -1080,14 +1080,17 @@ containing a value of this type.
         public static final int abs__title=0x7f05001b;
         public static final int abs__titleDivider=0x7f05001c;
         public static final int abs__up=0x7f05000b;
-        public static final int action_backgroun=0x7f050057;
+        public static final int action_backgroun=0x7f05005a;
         public static final int button2=0x7f050036;
         public static final int disableHome=0x7f050009;
         public static final int edit_query=0x7f050027;
         public static final int frag4layout=0x7f050038;
         public static final int homeAsUp=0x7f050006;
-        public static final int imageView1=0x7f050041;
-        public static final int linearLayout3=0x7f05003e;
+        public static final int imageView1=0x7f05003e;
+        public static final int item1=0x7f050057;
+        public static final int item2=0x7f050058;
+        public static final int item3=0x7f050059;
+        public static final int linearLayout3=0x7f05003f;
         public static final int listMode=0x7f050002;
         public static final int normal=0x7f050001;
         public static final int pager=0x7f050033;
@@ -1130,12 +1133,14 @@ containing a value of this type.
         public static final int fragment1_layout=0x7f030018;
         public static final int fragment4_layout=0x7f030019;
         public static final int fragment_main_dummy=0x7f03001a;
-        public static final int sherlock_spinner_dropdown_item=0x7f03001b;
-        public static final int sherlock_spinner_item=0x7f03001c;
-        public static final int test_fragment2_layout=0x7f03001d;
+        public static final int image_editor_layout=0x7f03001b;
+        public static final int sherlock_spinner_dropdown_item=0x7f03001c;
+        public static final int sherlock_spinner_item=0x7f03001d;
+        public static final int test_fragment2_layout=0x7f03001e;
     }
     public static final class menu {
-        public static final int main=0x7f0c0000;
+        public static final int image_editor_menu=0x7f0c0000;
+        public static final int main=0x7f0c0001;
     }
     public static final class string {
         public static final int ChildlineROILogoDesc=0x7f0a0020;
@@ -1207,6 +1212,9 @@ containing a value of this type.
         public static final int abs__shareactionprovider_share_with_application=0x7f0a0009;
         public static final int action_settings=0x7f0a0010;
         public static final int app_name=0x7f0a000f;
+        public static final int imageEditorAcceptButton=0x7f0a002c;
+        public static final int imageEditorCancelButton=0x7f0a002d;
+        public static final int imageEditorRotateButton=0x7f0a002b;
         public static final int title_section1=0x7f0a0011;
         public static final int title_section2=0x7f0a0012;
         public static final int title_section3=0x7f0a0013;

@@ -52,25 +52,6 @@ public class Fragment1 extends Fragment {
 	}
 	
 	@Override
-	public void onResume(){
-		super.onResume();
-		/*if(mActivity == null){
-			Log.v("Activity","null");
-		}
-		mButton = (Button) mActivity.findViewById(R.id.QuoteRefreshButton);
-		if(mButton == null){
-			Log.v("Button", "null");
-		}
-		Log.v("Frag1 onResume", "called");
-		mButton.setOnClickListener(listener);*/
-	}
-	
-	@Override
-	public void onPause(){
-		super.onPause();
-	}
-	
-	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		mActivity = activity;

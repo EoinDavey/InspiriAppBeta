@@ -8,6 +8,7 @@
         android:minSdkVersion="7"
         android:targetSdkVersion="17" />
     <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
 
     <application
         android:allowBackup="true"
@@ -18,12 +19,21 @@
         <activity
             android:name="com.powerblock.inspiriappbeta.MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.powerblock.inspiriappbeta.ImageEditor"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:uiOptions="splitActionBarWhenNarrow" >
+                   <meta-data android:name="android.support.UI_OPTIONS"
+                   android:value="splitActionBarWhenNarrow" />
         </activity>
     </application>
 
