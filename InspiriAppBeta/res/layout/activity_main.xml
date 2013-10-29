@@ -1,6 +1,18 @@
-<android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <ImageView
+        android:id="@+id/mainActivityBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/mainActivityBackgroundDesc" />
+
+    <android.support.v4.view.ViewPager 
     android:id="@+id/pager"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00000000"
     tools:context=".MainActivity" />
+</RelativeLayout>

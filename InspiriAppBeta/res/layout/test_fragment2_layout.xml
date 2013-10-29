@@ -434,7 +434,7 @@
                     android:paddingLeft="10dip"
                     android:layout_height="50dip"
                     android:src="@drawable/mindyourheadlayer"
-                    android:contentDescription="@string/YoungMindsLogoDesc"
+                    android:contentDescription="@string/MindYourHeadLogoDesc"
                     android:layout_gravity="center_vertical"
                     />
                 

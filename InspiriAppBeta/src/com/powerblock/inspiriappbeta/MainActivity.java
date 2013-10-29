@@ -12,8 +12,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,6 +25,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,17 +53,16 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 	 */
 	ViewPager mViewPager;
 	
+	/**
+	 * The {@link android.support.v4.Fragment} for the
+	 * Wishlist fragment
+	 */
 	Fragment4 fragment4;
 	
 	final Context context = this;
 	
-	static final String WISHLIST_STRING_1 = null;
-	static final String WISHLIST_STRING_2 = null;
-	static final String WISHLIST_STRING_3 = null;
-	static final String WISHLIST_VISIBLE_1 = null;
-	static final String WISHLIST_VISIBLE_2 = null;
-	static final String WISHLIST_VISIBLE_3 = null;
-	
+	private ImageView mImageView;
+		
 	ContentValues values = new ContentValues();
 
 	@Override
@@ -80,6 +78,8 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 		//actionBar.setDisplayShowTitleEnabled(false);
 		//Set up the Fragment 4
 		fragment4 = new Fragment4();
+		
+		mImageView = (ImageView) findViewById(R.id.mainActivityBackground);
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.
@@ -89,6 +89,7 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
+		
 
 		// When swiping between different sections, select the corresponding
 		// tab. We can also use ActionBar.Tab#select() to do this if we have
@@ -168,12 +169,8 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 		BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inPreferredConfig = Bitmap.Config.ARGB_8888;
 		Bitmap bitmap = BitmapFactory.decodeFile(root + "/InspiriAppBackground/"+ImageEditor.BACKGROUND_FILE_NAME, options);
-		Drawable d = new BitmapDrawable(getResources(), bitmap);
-		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN){
-			mViewPager.setBackgroundDrawable(d);
-		} else {
-			mViewPager.setBackground(d);
-		}
+		//Drawable d = new BitmapDrawable(getResources(), bitmap);
+		mImageView.setImageBitmap(bitmap);
 	}
 
 	public void onTabSelected(Tab tab,
@@ -187,7 +184,6 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 	public void onTabUnselected(Tab tab,
 			android.support.v4.app.FragmentTransaction fragmentTransaction) {
 	}
-
 
 	public void onTabReselected(Tab tab,
 			android.support.v4.app.FragmentTransaction fragmentTransaction) {

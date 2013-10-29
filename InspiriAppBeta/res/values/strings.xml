@@ -7,15 +7,10 @@
     <string name="title_section2">Contacts</string>
     <string name="title_section3">Timer</string>
     <string name="title_section4">Wish List</string>
-    <string name="Fragment1Text1">Quotes go here sdjfklnawef iasdjklfvc asdkl gtlkjesdfdflkvassdjklgfnasdjklhflkasdenflkjasesje5tkldcj v  ihsjfio;asdjol;ik</string>
-    <string name="Fragment2Text1">Contacts</string>
-    <string name="Fragment3Text1">05:00</string>
-    <string name="Fragment4Text1">Wish List</string>
+    <string name="Fragment1Text1">Quotes go here</string>
     <string name="Fragment1ReadToMeButton">Read to me</string>
     <string name="Fragment1RefreshButton">Refresh</string>
-    <string name="WishListButtonAdd">Add</string>
     <string name="WishListAddTextHint">New Wish</string>
-    <string name="EditTextBoxHint">New Wish</string>
     <string name="IrelandFlagDesc">The Ireland Flag</string>
     <string name="UKFlagDesc">The UK Flag</string>
     <string name="ChildlineROILogoDesc">Childline logo for contacts list</string>
@@ -32,6 +27,6 @@
     <string name="imageEditorRotateButton">Rotate</string>
     <string name="imageEditorAcceptButton">Accept</string>
     <string name="imageEditorCancelButton">Cancel</string>
-    
+    <string name="mainActivityBackgroundDesc">The Background for the main activity</string>
 
 </resources>
