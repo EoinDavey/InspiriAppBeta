@@ -16,6 +16,7 @@ public class Fragment4 extends Fragment {
 	private DatabaseHandler databaseHandler;
 	private FragmentActivity context;
 	
+	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
 		View v = inflater.inflate(R.layout.fragment4_layout, container, false);
@@ -52,8 +53,6 @@ public class Fragment4 extends Fragment {
 		}
 	}
 	
-	public void createNew(){
-	}
 	
 	public static void WishlistCounterSubtract(){
 		WishlistCounter--;
@@ -63,6 +62,19 @@ public class Fragment4 extends Fragment {
 	public void deleteAll(View v){
 		databaseHandler.deleteAllWishes();
 	}
-	
-	
+
+	public int getPos(Wish wish) {
+		int pos = (int) wish.getId();
+		return pos;
+	}
+
+	public Boolean isLast(Wish wish) {
+		int pos = getPos(wish);
+		int size = databaseHandler.getWishCount();
+		if(pos == size){
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

@@ -1,5 +1,7 @@
 package com.powerblock.inspiriappbeta;
 
+import java.util.ArrayList;
+
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,7 +10,9 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.ViewGroup;
 
-public class DatabaseHandler extends SQLiteOpenHelper {
+public class DatabaseHandler extends SQLiteOpenHelper implements WishlistObservable {
+	
+	private static ArrayList<OnWishlistChangeListener> listeners = new ArrayList<OnWishlistChangeListener>();
 	
 	//ViewGroup and Context and Layout Inflater for Instantiating Wishes
 	private ViewGroup viewGroup;
@@ -22,15 +26,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	
 	//Database Table Name
 	private static final String TABLE_WISHES = "wishlistTable";
-	//private static final String TABLE_QUOTES = "quotesTable";
 	
 	//Database Table Column Names
 	private static final String WISHLIST_KEY_ID = "id";
 	private static final String WISHLIST_KEY_MESSAGE = "Message";
 	private static final String WISHLIST_KEY_CHECKED = "Checked";
-	/*private static final String QUOTES_KEY_ID = "id";
-	private static final String QUOTES_KEY_QUOTE = "quote";
-	private static final String QUOTES_KEY_NAME = "name";*/
 
 	public DatabaseHandler(FragmentActivity context, ViewGroup viewGroup) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -55,6 +55,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		onCreate(db);
 	}
 	
+	/**
+	 * Adds wishes to the database
+	 * @param Wish the wish to be added
+	 * @return the position that it was inserted into the database
+	 */
 	public long addWish(Wish Wish){
 		SQLiteDatabase db = this.getWritableDatabase();
 		
@@ -84,9 +89,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		}
 		wish.setId(cursor.getInt(0));
 		cursor.close();
+		fire();
 	}
 	
-	
+	/**
+	 * Returns the number of wishes in the wish list
+	 * @return the number of wishes in the wish list
+	 */
 	public int getWishCount(){
 		int i;
 		String countQuery = "SELECT  * FROM " + TABLE_WISHES;
@@ -98,14 +107,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return i;
 	}
 	
-	public int updateWish(Wish Wish){
+	public int updateWish(Wish wish){
 		SQLiteDatabase db = this.getWritableDatabase();
-		
 		ContentValues values = new ContentValues();
-		values.put(WISHLIST_KEY_MESSAGE, Wish.getMessage());
-		values.put(WISHLIST_KEY_CHECKED, Wish.getChecked());
+		values.put(WISHLIST_KEY_MESSAGE, wish.getMessage());
+		values.put(WISHLIST_KEY_CHECKED, wish.getChecked());
 		//updating row
-		int i = db.update(TABLE_WISHES, values, WISHLIST_KEY_ID + " = ?", new String[] {String.valueOf(Wish.getId())});
+		int i = db.update(TABLE_WISHES, values, WISHLIST_KEY_ID + " = ?", new String[] {String.valueOf(wish.getId())});
 		db.close();
 		return i;
 	}
@@ -114,6 +122,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		SQLiteDatabase db = this.getWritableDatabase();
 		db.delete(TABLE_WISHES, WISHLIST_KEY_ID + " = ?", new String[] { String.valueOf(Wish.getId())});
 		db.close();
+		fire();
 	}
 	
 	public void logAllWishes(){
@@ -135,7 +144,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.close();
 	}
 	
-	 public void reinstantiateAllWishes(){
+	public void reinstantiateAllWishes(){
 		 SQLiteDatabase db = this.getReadableDatabase();
 		 String selectQuery = "SELECT  * FROM " + TABLE_WISHES;
 		 Cursor cursor = db.rawQuery(selectQuery, null);
@@ -146,12 +155,48 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 					isCheckedBoolean = true;
 				}
 				Wish wish = new Wish(viewGroup, context, this);
-				wish.updateBuilder(cursor.getString(1), isCheckedBoolean, Integer.parseInt(cursor.getString(0)));
+				wish.updateBuilder(cursor.getString(1), isCheckedBoolean, cursor.getInt(0));
 			 } while(cursor.moveToNext());
 		 }
 		 cursor.close();
 		logAllWishes();
+		fire();
 		db.close();
 	 }
+	 
+	public Boolean isLast(Wish wish){
+		 SQLiteDatabase db = this.getReadableDatabase();
+		 String selectQuery = "SELECT  * FROM " + TABLE_WISHES;
+		 Cursor cursor = db.rawQuery(selectQuery, null);
+		 Boolean b = false;
+		 if(cursor.moveToLast()){
+			Log.v("Id:",String.valueOf(wish.getId())); 
+			 if(Integer.parseInt(cursor.getString(0)) == wish.getId()){
+				 b = true;
+			 } else {
+				 b = false;
+			 }
+		 	}
+		 cursor.close();
+		 db.close();
+		 return b;
+	}
+
+	@Override
+	public void add(OnWishlistChangeListener listener) {
+		listeners.add(listener);
+	}
+
+	@Override
+	public void remove(OnWishlistChangeListener listener) {
+		listeners.remove(listener);
+	}
+	
+	public void fire(){
+		Log.v("fire()","firing");
+		for(OnWishlistChangeListener listener:listeners){
+			listener.wishlistChanged();
+		}
+	}
 	 
 }

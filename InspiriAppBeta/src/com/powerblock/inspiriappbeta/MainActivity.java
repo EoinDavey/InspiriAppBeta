@@ -1,6 +1,7 @@
 package com.powerblock.inspiriappbeta;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Locale;
 
 import android.annotation.TargetApi;
@@ -36,7 +37,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
 public class MainActivity extends SherlockFragmentActivity implements
-com.actionbarsherlock.app.ActionBar.TabListener {
+com.actionbarsherlock.app.ActionBar.TabListener, WishlistObservable {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -64,6 +65,7 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 	private ImageView mImageView;
 		
 	ContentValues values = new ContentValues();
+	private ArrayList<OnWishlistChangeListener> listeners = new ArrayList<OnWishlistChangeListener>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -261,7 +263,6 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 		dialogActivate("Ring Childline?", "This is a UK number, are you sure you want to ring?", 2, "8001111");
 	}
 	
-	
 	public void SamROICall(View view){
 		dialogActivate("Ring Samaritans?", "This is an ROI number, are you sure you want to ring?", 1, "1850609090");
 	}
@@ -399,6 +400,7 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 			Wish c = new Wish((ViewGroup) findViewById(R.id.MainLayout), this, new DatabaseHandler(this,(ViewGroup) findViewById(R.id.MainLayout)));
 			c.newBuilder(message);
 			Fragment4.WishlistCounter++;
+			fire();
 		//Explain unacceptability
 		} else if(Fragment4.WishlistCounter >= Fragment4.SLOTS_LIMIT){
 			Toast.makeText(context, "You cannot have over" +  String.valueOf(Fragment4.SLOTS_LIMIT) + "entries" ,Toast.LENGTH_SHORT).show();
@@ -430,4 +432,23 @@ com.actionbarsherlock.app.ActionBar.TabListener {
 			return rootView;
 		}
 	}
+	
+
+	@Override
+	public void add(OnWishlistChangeListener listener) {
+		listeners.add(listener);
+	}
+	
+
+	@Override
+	public void remove(OnWishlistChangeListener listener) {
+		listeners.remove(listener);
+	}
+	
+	public void fire(){
+		for(OnWishlistChangeListener listener:listeners){
+			listener.wishlistChanged();
+		}
+	}
+	
 }

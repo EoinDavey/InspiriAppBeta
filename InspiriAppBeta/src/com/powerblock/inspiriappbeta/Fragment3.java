@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
@@ -15,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -31,12 +31,13 @@ public class Fragment3 extends Fragment {
 	private float infoButtonDimen;
 	private Resources res;
 	private Drawable infoButtonDrawable;
-	private boolean active = false;
+	private CountDownTimerWithPause timer;
+	private Button mPauseButton;
+	private LinearLayout mLinearLayout;
 	
 	@SuppressWarnings("deprecation")
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		super.onCreateView(inflater, container,savedInstanceState);
-		
 		
 		res = getResources();
 		displayFloatDimen = res.getDimension(R.dimen.timer_display_size);
@@ -49,9 +50,12 @@ public class Fragment3 extends Fragment {
 		timerTextViewLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
 		timerTextViewLayoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		
-		RelativeLayout.LayoutParams startButtonLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		startButtonLayoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
-		startButtonLayoutParams.addRule(RelativeLayout.BELOW, 101);
+		RelativeLayout.LayoutParams linearLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		linearLayoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+		linearLayoutParams.addRule(RelativeLayout.BELOW, 101);
+		
+		RelativeLayout.LayoutParams pauseAndStartButtonLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		pauseAndStartButtonLayoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		
 		RelativeLayout.LayoutParams infoButtonLayoutParams = new RelativeLayout.LayoutParams((int) infoButtonDimen, (int) infoButtonDimen);
 		infoButtonLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
@@ -61,6 +65,10 @@ public class Fragment3 extends Fragment {
 		messageTextViewLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 		messageTextViewLayoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		messageTextViewLayoutParams.setMargins(0, (int) messageTextViewMargin, 0, 0);
+		//Set up the linear layout
+		mLinearLayout = new LinearLayout(context);
+		mLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
+		mLinearLayout.setLayoutParams(linearLayoutParams);
 		//Set up timer textView
 		timerTextView = new TextView(context);
 		timerTextView.setLayoutParams(timerTextViewLayoutParams);
@@ -74,18 +82,27 @@ public class Fragment3 extends Fragment {
 		
 		//Set up startButton
 		startButton = new Button(context);
-		startButton.setLayoutParams(startButtonLayoutParams);
+		startButton.setLayoutParams(pauseAndStartButtonLayoutParams);
 		startButton.setId(102);
 		startButton.setText("Start");
 		startButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				if(!active){
 					countdownStart();
-					active = true;
 					timerTextView.setText("01:59");
 				}
+			}
+		);
+		//Set up pause button
+		mPauseButton = new Button(context);
+		mPauseButton.setLayoutParams(pauseAndStartButtonLayoutParams);
+		mPauseButton.setText("Pause");
+		mPauseButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				countdownPause();
 			}
 		});
 		//set up infoButton
@@ -100,15 +117,35 @@ public class Fragment3 extends Fragment {
 			}
 		});
 		
+		//add buttons to layout
+		mLinearLayout.addView(startButton);
+		mLinearLayout.addView(mPauseButton);
+		
 		//Set up relative Layout
 		layout = new RelativeLayout(context);
 		layout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 		layout.addView(timerTextView);
-		layout.addView(startButton);
+		layout.addView(mLinearLayout);
 		layout.addView(infoButton);
 		//layout.addView(messageTextView);
 		//View v = inflater.inflate(R.layout.fragment3_layout, container, false);
 		layout.setBackgroundColor(00000000);
+		
+		timer = new CountDownTimerWithPause(120000, 1000, false){
+			@Override
+			public void onFinish() {
+				timerTextView.setText("00:00");
+			}
+
+			@SuppressLint("DefaultLocale")
+			@Override
+			public void onTick(long millisUntilFinished) {
+				int seconds = (int) (millisUntilFinished / 1000);
+				String timeString = String.format("%02d:%02d", seconds / 60, seconds % 60);
+				timerTextView.setText(timeString);
+			}
+			
+		}.create();		
 		return layout;
 	}
 	
@@ -135,21 +172,16 @@ public class Fragment3 extends Fragment {
 	}
 	
 	public void countdownStart(){
-		new CountDownTimer(120000, 1000){
-			@Override
-			public void onFinish() {
-				timerTextView.setText("00:00");
-				active = false;
-			}
-
-			@SuppressLint("DefaultLocale")
-			@Override
-			public void onTick(long millisUntilFinished) {
-				int seconds = (int) (millisUntilFinished / 1000);
-				String timeString = String.format("%02d:%02d", seconds / 60, seconds % 60);
-				timerTextView.setText(timeString);
-			}
-			
-		}.start();
+		if(!timer.isRunning() && !timer.isPaused()){
+			timer.resume();
+		} else if(timer.isPaused()){
+			timer.resume();
+		}
+	}
+	
+	public void countdownPause(){
+		if(timer.isRunning() && !timer.isPaused()){
+			timer.pause();
+		}
 	}
 }

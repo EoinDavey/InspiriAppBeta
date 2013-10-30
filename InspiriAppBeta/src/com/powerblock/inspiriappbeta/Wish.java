@@ -1,11 +1,12 @@
 package com.powerblock.inspiriappbeta;
 
 import java.io.Serializable;
-
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Gravity;
@@ -19,7 +20,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Wish implements Serializable{
+@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+public class Wish implements Serializable, OnWishlistChangeListener{
 	
 	private static final long serialVersionUID = 7139785155501046178L;
 	private static final int LAYOUT_ORIENTATION = LinearLayout.HORIZONTAL;
@@ -42,6 +44,7 @@ public class Wish implements Serializable{
 	private int wishlistButtonDimen;
 	private int heightDimen;
 	private int layoutColour;
+	private Drawable bottomWishShape;
 
 	public Wish(ViewGroup viewgroup, FragmentActivity c, DatabaseHandler db){
 		this.context = c;
@@ -52,11 +55,12 @@ public class Wish implements Serializable{
 		this.editButtonBackground = res.getDrawable(R.drawable.pencilsmall);
 		this.wishlistRemoveButtonDimenFloat = res.getDimension(R.dimen.wishlist__remove_button_dimen);
 		float heightFloat = res.getDimension(R.dimen.height_dimen);
+		this.bottomWishShape = res.getDrawable(R.drawable.bottomwishshape);
 		this.heightDimen = Math.round(heightFloat);
 		this.wishlistButtonDimen = Math.round(wishlistRemoveButtonDimenFloat);
 		this.textViewDimenFloat = res.getDimension(R.dimen.wishlist_text_view_dimen);
 		this.textViewDimen = Math.round(textViewDimenFloat);
-		this.databaseHandler = new DatabaseHandler(context, viewgroup);
+		this.databaseHandler = db;
 	}
 	
 	//This Builder is used for new wishes
@@ -64,15 +68,16 @@ public class Wish implements Serializable{
 		build();
 		setText(message);
 		this.id = databaseHandler.addWish(this);
+		fixShape();
 		databaseHandler.logAllWishes();
 	}
 	
 	//This Builder is used for reinstantiating Wishes from the database
 	public void updateBuilder(String message, Boolean checked, int id){
+		setId(id);
 		build();
 		setText(message);
 		setChecked(checked);
-		setId(id);
 		databaseHandler.updateWish(this);
 	}
 
@@ -82,7 +87,6 @@ public class Wish implements Serializable{
 		this.mainLinearLayout = new LinearLayout(context);
 		mainLinearLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, heightDimen));
 		mainLinearLayout.setOrientation(LAYOUT_ORIENTATION);
-		mainLinearLayout.setBackgroundColor(layoutColour);
 		//Instantiate the TextView
 		this.textView = new TextView(this.context);
 		textView.setLayoutParams(new LayoutParams(textViewDimen, LayoutParams.WRAP_CONTENT));
@@ -135,6 +139,11 @@ public class Wish implements Serializable{
 		mainLinearLayout.addView(textView);
 		//Add the buttonCheckBoxLayout to the mainLinearLayout
 		mainLinearLayout.addView(buttonCheckBoxLayout);
+		
+		fixShape();
+		register(databaseHandler);
+		register((WishlistObservable) context);
+		
 		//Add the main Linear Layout to the parent ViewGroup
 		parentViewGroup.addView(mainLinearLayout);
 	}
@@ -145,6 +154,7 @@ public class Wish implements Serializable{
 		}
 		databaseHandler.updateWish(this);
 	}
+	
 	public void setText(String message){
 		try{
 			this.textView.setText(message);
@@ -191,6 +201,8 @@ public class Wish implements Serializable{
 			checkBox.setChecked(false);
 			Fragment4.WishlistCounterSubtract();
 			databaseHandler.deleteWish(this);
+			unregister(databaseHandler);
+			unregister((WishlistObservable) context);
 		} catch(NullPointerException e){
 			Log.e("Wishlist Entry", "remove called before Builder()");
 		}
@@ -244,6 +256,37 @@ public class Wish implements Serializable{
 		if(!message.equals("") && !message.equals(null)){
 			setText(message);
 		}
+	}
+	
+	private Boolean isLast(){
+		return databaseHandler.isLast(this);
+	}
+	
+	@SuppressWarnings("deprecation")
+	private void fixShape(){
+		//Check if last for design
+		if(isLast()){
+			if(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN){
+				mainLinearLayout.setBackgroundDrawable(bottomWishShape);
+			} else {
+				mainLinearLayout.setBackground(bottomWishShape);
+			}
+		} else {
+			mainLinearLayout.setBackgroundColor(layoutColour);
+		}
+	}
+
+	@Override
+	public void wishlistChanged() {
+		fixShape();
+	}
+	
+	public void register(WishlistObservable observable){
+		observable.add(this);
+	}
+
+	public void unregister(WishlistObservable observable){
+		observable.remove(this);
 	}
 	
 }
