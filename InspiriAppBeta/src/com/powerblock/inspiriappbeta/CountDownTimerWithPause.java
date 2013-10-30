@@ -15,6 +15,7 @@ import android.os.SystemClock;
  * {@link #onTick(long)} takes an amount of time to execute that is significant
  * compared to the countdown interval.
  */
+@SuppressLint("HandlerLeak")
 public abstract class CountDownTimerWithPause {
 
     /**

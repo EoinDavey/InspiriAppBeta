@@ -1,11 +1,13 @@
 package com.powerblock.inspiriappbeta;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -21,7 +23,6 @@ import android.widget.TextView;
 public class Fragment3 extends Fragment {
 	
 	private TextView timerTextView;
-	private TextView messageTextView;
 	private FragmentActivity context;
 	private Button startButton;
 	private Button infoButton;
@@ -34,7 +35,9 @@ public class Fragment3 extends Fragment {
 	private CountDownTimerWithPause timer;
 	private Button mPauseButton;
 	private LinearLayout mLinearLayout;
+	private Drawable timerBackground;
 	
+	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	@SuppressWarnings("deprecation")
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		super.onCreateView(inflater, container,savedInstanceState);
@@ -44,6 +47,7 @@ public class Fragment3 extends Fragment {
 		messageTextViewMargin = res.getDimension(R.dimen.message_margin_dimen);
 		infoButtonDimen = res.getDimension(R.dimen.infoButtonSize);
 		infoButtonDrawable = res.getDrawable(android.R.drawable.ic_menu_info_details);
+		timerBackground = res.getDrawable(R.drawable.clock_background_shape);
 		
 		//Set up relativeLayout Params
 		RelativeLayout.LayoutParams timerTextViewLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -75,11 +79,7 @@ public class Fragment3 extends Fragment {
 		timerTextView.setId(101);
 		timerTextView.setTextSize(displayFloatDimen);
 		timerTextView.setText("02:00");
-		//Set up the message TextView
-		messageTextView = new TextView(context);
-		messageTextView.setLayoutParams(messageTextViewLayoutParams);
-		messageTextView.setText("Welcome to the timer section. This is used to give you time to reflect about your life and what you could do to improve it, find a comfortable place to sit or lie down and press start to begin");
-		
+
 		//Set up startButton
 		startButton = new Button(context);
 		startButton.setLayoutParams(pauseAndStartButtonLayoutParams);
@@ -127,9 +127,14 @@ public class Fragment3 extends Fragment {
 		layout.addView(timerTextView);
 		layout.addView(mLinearLayout);
 		layout.addView(infoButton);
-		//layout.addView(messageTextView);
-		//View v = inflater.inflate(R.layout.fragment3_layout, container, false);
 		layout.setBackgroundColor(00000000);
+		
+		//Deal with different API's
+		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN){
+			timerTextView.setBackgroundDrawable(timerBackground);
+		} else {
+			timerTextView.setBackground(timerBackground);
+		}
 		
 		timer = new CountDownTimerWithPause(120000, 1000, false){
 			@Override

@@ -23,10 +23,10 @@
 
     <Button
         android:id="@+id/WishListButtonAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:onClick="wishListCreateNew"
-        android:background="@android:drawable/ic_input_add" />
+        android:background="@drawable/add_button_selector" />
     </LinearLayout>
     
 <ScrollView
