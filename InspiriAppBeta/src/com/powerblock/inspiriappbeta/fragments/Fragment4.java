@@ -1,4 +1,10 @@
-package com.powerblock.inspiriappbeta;
+package com.powerblock.inspiriappbeta.fragments;
+
+import com.powerblock.inspiriappbeta.DatabaseHandler;
+import com.powerblock.inspiriappbeta.R;
+import com.powerblock.inspiriappbeta.Wish;
+import com.powerblock.inspiriappbeta.R.id;
+import com.powerblock.inspiriappbeta.R.layout;
 
 import android.app.Activity;
 import android.os.Bundle;

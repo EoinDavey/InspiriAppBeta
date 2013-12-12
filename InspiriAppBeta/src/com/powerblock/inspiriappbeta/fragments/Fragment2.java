@@ -1,4 +1,7 @@
-package com.powerblock.inspiriappbeta;
+package com.powerblock.inspiriappbeta.fragments;
+
+import com.powerblock.inspiriappbeta.R;
+import com.powerblock.inspiriappbeta.R.layout;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

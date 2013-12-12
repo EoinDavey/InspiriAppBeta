@@ -1,6 +1,9 @@
 package com.powerblock.inspiriappbeta;
 
 import java.io.Serializable;
+
+import com.powerblock.inspiriappbeta.fragments.Fragment4;
+
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;

@@ -1,4 +1,9 @@
-package com.powerblock.inspiriappbeta;
+package com.powerblock.inspiriappbeta.fragments;
+
+import com.powerblock.inspiriappbeta.CountDownTimerWithPause;
+import com.powerblock.inspiriappbeta.R;
+import com.powerblock.inspiriappbeta.R.dimen;
+import com.powerblock.inspiriappbeta.R.drawable;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

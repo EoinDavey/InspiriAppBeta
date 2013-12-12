@@ -1,10 +1,17 @@
-package com.powerblock.inspiriappbeta;
+package com.powerblock.inspiriappbeta.fragments;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
 import org.xmlpull.v1.XmlPullParserException;
+
+import com.powerblock.inspiriappbeta.Quote;
+import com.powerblock.inspiriappbeta.R;
+import com.powerblock.inspiriappbeta.XmlParser;
+import com.powerblock.inspiriappbeta.R.id;
+import com.powerblock.inspiriappbeta.R.layout;
+import com.powerblock.inspiriappbeta.R.xml;
 
 import android.app.Activity;
 import android.os.Bundle;

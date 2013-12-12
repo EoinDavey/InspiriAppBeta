@@ -35,6 +35,10 @@ import com.actionbarsherlock.app.ActionBar.TabListener;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.powerblock.inspiriappbeta.fragments.Fragment1;
+import com.powerblock.inspiriappbeta.fragments.Fragment2;
+import com.powerblock.inspiriappbeta.fragments.Fragment3;
+import com.powerblock.inspiriappbeta.fragments.Fragment4;
 
 public class MainActivity extends SherlockFragmentActivity implements
 com.actionbarsherlock.app.ActionBar.TabListener, WishlistObservable {
