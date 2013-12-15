@@ -4,13 +4,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.Point;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.Display;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -23,28 +27,40 @@ public class ImageEditor extends SherlockActivity {
 	private ImageView mImageView;
 	private Bitmap mBitmap;
 	
+	private int ImageViewHeight;
+	private int ImageViewWidth;
+	private int displayWidth;
+	private int displayHeight;
+	
 	public static final String IMAGE_LOC_TAG ="image_location";
 	public static final int REQUEST_CODE = 1;
 	
 	public static final String BACKGROUND_FILE_NAME = "ImageBackground.jpg";
 	
+	@SuppressLint("NewApi")
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		mImageView = new ImageView(this);
+		ImageViewHeight = mImageView.getHeight();
+		ImageViewWidth = mImageView.getWidth();
 		String uriString = getIntent().getStringExtra(IMAGE_LOC_TAG);
 		Uri target = Uri.parse(uriString);
-		Bitmap bitmap;
-		try{
-			bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(target));
-			mBitmap = bitmap;
-			int size = bitmap.getRowBytes() * bitmap.getHeight();
-			Toast.makeText(this, String.valueOf(size), Toast.LENGTH_LONG).show();
-			mImageView.setImageBitmap(bitmap);
-		} catch(FileNotFoundException e) {
-			e.printStackTrace();
+		
+		Display display = getWindowManager().getDefaultDisplay(); 
+		if(Build.VERSION.SDK_INT < 13){
+			displayWidth = display.getWidth();  // deprecated
+			displayHeight = display.getHeight();
+		} else {
+			Point size = new Point();
+			display.getSize(size);
+			displayWidth = size.x;
+			displayHeight = size.y;
 		}
+		mBitmap = openImage(target);
+		mImageView.setImageBitmap(mBitmap);
 		setContentView(mImageView);
+		Toast.makeText(this, new StringBuilder().append("display: ").append(displayHeight).append("x").append(displayWidth), Toast.LENGTH_SHORT).show();
 	}
 	
 	@Override
@@ -70,6 +86,31 @@ public class ImageEditor extends SherlockActivity {
 			break;
 		}
 		return true;
+	}
+	
+	
+	public Bitmap openImage(Uri target){
+		Bitmap bitmap = null;
+		BitmapFactory.Options options = new BitmapFactory.Options();
+		//only loads info about picture, avoids memory problems at this stage
+		options.inJustDecodeBounds = true;
+		try{
+			bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(target), null, options);
+			int height = options.outHeight;
+			int width = options.outWidth;
+			Toast.makeText(this, new StringBuilder("Image Size:").append(height).append(" x ").append(width).toString(), Toast.LENGTH_LONG).show();
+			options.inSampleSize = calculateInSampleSize(options, displayHeight, displayWidth);
+			Toast.makeText(this, "InSampleSize:"+String.valueOf(options.inSampleSize), Toast.LENGTH_SHORT).show();
+			options.inJustDecodeBounds=false;
+			bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(target), null, options);
+			/*mBitmap = bitmap;
+			int size = bitmap.getRowBytes() * bitmap.getHeight();
+			Toast.makeText(this, String.valueOf(size), Toast.LENGTH_LONG).show();
+			mImageView.setImageBitmap(bitmap);*/
+		} catch(FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return bitmap;
 	}
 	
 	public void rotate(){
@@ -100,7 +141,7 @@ public class ImageEditor extends SherlockActivity {
 	
 	private void saveImage(){
 		String root = Environment.getExternalStorageDirectory().toString();
-		File myDir = new File(root + "/InspiriAppBackground");
+		File myDir = new File(root + "/.InspiriAppBackground");
 		myDir.mkdirs();
 		File file = new File(myDir,BACKGROUND_FILE_NAME);
 		if(file.exists()){
@@ -114,6 +155,26 @@ public class ImageEditor extends SherlockActivity {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private int calculateInSampleSize(BitmapFactory.Options options, int reqHeight, int reqWidth){
+		final int height = options.outHeight;
+		final int width = options.outWidth;
+		int inSampleSize = 1;
+		
+		 if (height > reqHeight || width > reqWidth) {
+
+		        final int halfHeight = height / 2;
+		        final int halfWidth = width / 2;
+
+		        // Calculate the largest inSampleSize value that is a power of 2 and keeps both
+		        // height and width larger than the requested height and width.
+		        while ((halfHeight / inSampleSize) > reqHeight
+		                && (halfWidth / inSampleSize) > reqWidth) {
+		            inSampleSize *= 2;
+		        }
+		    }
+		 return inSampleSize;
 	}
 	
 }

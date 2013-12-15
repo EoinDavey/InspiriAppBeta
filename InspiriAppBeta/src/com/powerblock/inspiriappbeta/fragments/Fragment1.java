@@ -6,13 +6,6 @@ import java.util.Random;
 
 import org.xmlpull.v1.XmlPullParserException;
 
-import com.powerblock.inspiriappbeta.Quote;
-import com.powerblock.inspiriappbeta.R;
-import com.powerblock.inspiriappbeta.XmlParser;
-import com.powerblock.inspiriappbeta.R.id;
-import com.powerblock.inspiriappbeta.R.layout;
-import com.powerblock.inspiriappbeta.R.xml;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -22,6 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.powerblock.inspiriappbeta.Quote;
+import com.powerblock.inspiriappbeta.R;
+import com.powerblock.inspiriappbeta.XmlParser;
 
 public class Fragment1 extends Fragment {
 	

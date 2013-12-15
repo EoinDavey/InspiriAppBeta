@@ -1,13 +1,12 @@
 package com.powerblock.inspiriappbeta.fragments;
 
-import com.powerblock.inspiriappbeta.R;
-import com.powerblock.inspiriappbeta.R.layout;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.powerblock.inspiriappbeta.R;
 
 public class Fragment2 extends Fragment {
 	

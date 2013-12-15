@@ -162,12 +162,12 @@ com.actionbarsherlock.app.ActionBar.TabListener, WishlistObservable {
 	
 	public void getBackgroundImage(int i){
 		String root = Environment.getExternalStorageDirectory().toString();
-		File myDir = new File(root + "/InspiriAppBackground");
+		File myDir = new File(root + "/.InspiriAppBackground");
 		File file = new File(myDir, ImageEditor.BACKGROUND_FILE_NAME);
 		if(!file.exists() && i == 0){
 			Toast.makeText(this, "Error while retrieving image", Toast.LENGTH_LONG).show();
 			return;
-		} else if(!file.exists() && i == 0){
+		} else if(!file.exists() && i == 1){
 			return;
 		}
 		BitmapFactory.Options options = new BitmapFactory.Options();

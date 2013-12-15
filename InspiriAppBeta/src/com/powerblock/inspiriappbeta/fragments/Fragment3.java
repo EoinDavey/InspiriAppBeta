@@ -1,10 +1,5 @@
 package com.powerblock.inspiriappbeta.fragments;
 
-import com.powerblock.inspiriappbeta.CountDownTimerWithPause;
-import com.powerblock.inspiriappbeta.R;
-import com.powerblock.inspiriappbeta.R.dimen;
-import com.powerblock.inspiriappbeta.R.drawable;
-
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -24,6 +19,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.powerblock.inspiriappbeta.CountDownTimerWithPause;
+import com.powerblock.inspiriappbeta.R;
 
 public class Fragment3 extends Fragment {
 	
