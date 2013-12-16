@@ -172,7 +172,7 @@ com.actionbarsherlock.app.ActionBar.TabListener, WishlistObservable {
 		}
 		BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-		Bitmap bitmap = BitmapFactory.decodeFile(root + "/InspiriAppBackground/"+ImageEditor.BACKGROUND_FILE_NAME, options);
+		Bitmap bitmap = BitmapFactory.decodeFile(root + "/.InspiriAppBackground/"+ImageEditor.BACKGROUND_FILE_NAME, options);
 		//Drawable d = new BitmapDrawable(getResources(), bitmap);
 		mImageView.setImageBitmap(bitmap);
 	}
