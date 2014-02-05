@@ -27,8 +27,6 @@ public class ImageEditor extends SherlockActivity {
 	private ImageView mImageView;
 	private Bitmap mBitmap;
 	
-	private int ImageViewHeight;
-	private int ImageViewWidth;
 	private int displayWidth;
 	private int displayHeight;
 	
@@ -37,13 +35,12 @@ public class ImageEditor extends SherlockActivity {
 	
 	public static final String BACKGROUND_FILE_NAME = "ImageBackground.jpg";
 	
+	@SuppressWarnings("deprecation")
 	@SuppressLint("NewApi")
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		mImageView = new ImageView(this);
-		ImageViewHeight = mImageView.getHeight();
-		ImageViewWidth = mImageView.getWidth();
 		String uriString = getIntent().getStringExtra(IMAGE_LOC_TAG);
 		Uri target = Uri.parse(uriString);
 		
