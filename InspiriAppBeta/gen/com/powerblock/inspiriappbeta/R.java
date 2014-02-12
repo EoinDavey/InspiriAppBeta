@@ -1087,7 +1087,7 @@ containing a value of this type.
         public static final int abs__title=0x7f05001b;
         public static final int abs__titleDivider=0x7f05001c;
         public static final int abs__up=0x7f05000b;
-        public static final int action_backgroun=0x7f05005b;
+        public static final int action_background=0x7f05005b;
         public static final int button2=0x7f050037;
         public static final int disableHome=0x7f050009;
         public static final int edit_query=0x7f050027;
@@ -1097,6 +1097,8 @@ containing a value of this type.
         public static final int item1=0x7f050058;
         public static final int item2=0x7f050059;
         public static final int item3=0x7f05005a;
+        public static final int item_action_add=0x7f05005c;
+        public static final int item_action_clear=0x7f05005d;
         public static final int linearLayout3=0x7f050040;
         public static final int listMode=0x7f050002;
         public static final int mainActivityBackground=0x7f050033;
@@ -1149,6 +1151,7 @@ containing a value of this type.
     public static final class menu {
         public static final int image_editor_menu=0x7f0c0000;
         public static final int main=0x7f0c0001;
+        public static final int menu_popup=0x7f0c0002;
     }
     public static final class string {
         public static final int ChildlineROILogoDesc=0x7f0a001b;

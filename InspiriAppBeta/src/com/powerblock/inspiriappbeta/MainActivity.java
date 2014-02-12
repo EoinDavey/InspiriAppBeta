@@ -131,8 +131,13 @@ com.actionbarsherlock.app.ActionBar.TabListener, WishlistObservable {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
 		super.onOptionsItemSelected(item);
-		Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-		startActivityForResult(intent, 0);
+		if(item.getItemId() == R.id.item_action_add){
+			Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+			startActivityForResult(intent, 0);
+		} else if(item.getItemId() == R.id.item_action_clear){
+			mImageView.setBackgroundColor(0000);
+			Toast.makeText(this, "Background Cleared", Toast.LENGTH_LONG).show();
+		}
 		return true;
 	}
 	
@@ -454,5 +459,6 @@ com.actionbarsherlock.app.ActionBar.TabListener, WishlistObservable {
 			listener.wishlistChanged();
 		}
 	}
+	
 	
 }

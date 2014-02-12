@@ -1,10 +1,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_backgroun"
+        android:id="@+id/action_background"
         android:orderInCategory="100"
         android:showAsAction="ifRoom"
         android:title="@string/action_settings"
-        android:icon="@android:drawable/ic_menu_gallery"/>
+        android:icon="@android:drawable/ic_menu_gallery">
+        <menu>
+            <item android:id="@+id/item_action_add"
+                android:orderInCategory="1"
+                android:showAsAction="always"
+                android:icon="@android:drawable/ic_menu_gallery"
+                android:title="Add Background" />
+            <item android:id="@+id/item_action_clear"
+                android:orderInCategory="100"
+                android:showAsAction="ifRoom"
+                android:title="Clear"
+                android:icon="@android:drawable/ic_delete" />
+        </menu>
+	</item>
 
 </menu>
