@@ -46,10 +46,6 @@ public class XmlParser {
 		return list;
 	}
 	
-	/*private void readFeed(XmlPullParser parser) throws XmlPullParserException, IOException{
-		
-	}*/
-	
 	private Quote readEntry(XmlResourceParser parser) throws XmlPullParserException, IOException{
 		parser.require(XmlPullParser.START_TAG, null, "Quote");
 		String name = parser.getAttributeValue(null, "name");

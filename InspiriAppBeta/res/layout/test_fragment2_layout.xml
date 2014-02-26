@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,18 +18,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
                 android:background="@drawable/customborder" >
 
                 <Button
                     android:id="@+id/ContactButtonChildlineROI"
                     android:layout_width="60dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/callicon"
+                    android:background="@drawable/calliconbackground"
                     android:minWidth="64dip"
                     android:onClick="ChildlineROICall"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
                      />
 
                 <ImageView
@@ -40,14 +39,13 @@
                     android:src="@drawable/childlinelayer"
                     android:contentDescription="@string/ChildlineROILogoDesc"
                     android:layout_gravity="center" />
-
                 <ImageView
                     android:layout_width="60dip"
                     android:layout_height="50dip"
                     android:layout_gravity="center_vertical"
-                    android:paddingLeft="10dip"
                     android:contentDescription="@string/IrelandFlagDesc"
-                    android:src="@drawable/irelandflag" />
+                    android:src="@drawable/irelandflag"
+                    android:paddingLeft="10dip" />
 
             </LinearLayout>
 
@@ -56,9 +54,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
                 android:background="@drawable/customborder" >
 
                 <Button
@@ -66,7 +61,9 @@
                     android:layout_width="60dp"
                     android:layout_height="80dp"
                     android:onClick="ChildlineUKCall"
-                    android:background="@drawable/callicon"  />
+                    android:background="@drawable/calliconbackground" 
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp" />
 
                 <ImageView
                     android:layout_width="160dip"
@@ -92,16 +89,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
                 android:background="@drawable/customborder" >
 
                 <Button
                     android:id="@+id/ContactButtonSamROI"
                     android:layout_width="60dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/callicon"
+                    android:background="@drawable/calliconbackground"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
                     android:onClick="SamROICall" />
 
                 <ImageView
@@ -127,16 +123,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
                 android:background="@drawable/customborder" >
 
                 <Button
                     android:id="@+id/ContactButtonSamUK"
                     android:layout_width="60dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/callicon"
+                    android:background="@drawable/calliconbackground"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
                     android:onClick="SamUKCall" />
 
                 <ImageView
@@ -162,16 +157,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
                 android:background="@drawable/customborder" >
 
                 <Button
                     android:id="@+id/ContactButton1Life"
                     android:layout_width="60dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/callicon"
+                    android:background="@drawable/calliconbackground"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
                     android:onClick="OneLifeCall" />
 
                 <ImageView
@@ -197,16 +191,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
                 android:background="@drawable/customborder" >
 
                 <Button
                     android:id="@+id/ContactButtonPapyrus"
                     android:layout_width="60dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/callicon"
+                    android:background="@drawable/calliconbackground"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
                     android:onClick="PapyrusCall" />
 
                 <ImageView
@@ -233,16 +226,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/customborder"
-                android:orientation="horizontal"
-                android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp" >
+                android:orientation="horizontal" >
 
                 <Button
                     android:id="@+id/ContactButtonNSP"
                     android:layout_width="60dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/callicon"
+                    android:background="@drawable/calliconbackground"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
                     android:onClick="LGBTHelplineCall" />
 
                  <ImageView
@@ -268,16 +260,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/customborder"
-                android:orientation="horizontal"
-                android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp" >
+                android:orientation="horizontal" >
 
                 <Button
                     android:id="@+id/ContactButtonLifeline"
                     android:layout_width="60dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/callicon"
+                    android:background="@drawable/calliconbackground"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
                     android:onClick="LlgsCall" />
 
                 <ImageView
@@ -304,9 +295,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
                 android:background="@drawable/customborder" >
 
                 <Button
@@ -314,7 +302,9 @@
                     android:layout_width="60dp"
                     android:layout_height="80dip"
                     android:onClick="ReachoutWeb"
-                    android:background="@drawable/wifiicon" />
+                    android:background="@drawable/wifibackground"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp" />
 
                 <ImageView 
                     android:layout_width="160dip"
@@ -341,16 +331,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
                 android:background="@drawable/customborder" >
 
                 <Button
                     android:id="@+id/QuoteRefreshButton"
                     android:layout_width="60dip"
                     android:layout_height="80dip"
-                    android:background="@drawable/wifiicon"
+                    android:background="@drawable/wifibackground"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
                     android:onClick="SpunoutWeb" />
 
                 <ImageView 
@@ -379,16 +368,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
                 android:background="@drawable/customborder" >
 
                 <Button
                     android:id="@+id/ContactButtonYoungMinds"
                     android:layout_width="60dip"
                     android:layout_height="80dip"
-                    android:background="@drawable/wifiicon"
+                    android:background="@drawable/wifibackground"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
                     android:onClick="YoungMindsWeb" />
 
                 <ImageView 
@@ -417,16 +405,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
                 android:background="@drawable/customborder" >
 
                 <Button
                     android:id="@+id/ContactButtonMindYourHead"
                     android:layout_width="60dip"
                     android:layout_height="80dip"
-                    android:background="@drawable/wifiicon"
+                    android:background="@drawable/wifibackground"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
                     android:onClick="MindYourHeadWeb" />
 
                 <ImageView 
