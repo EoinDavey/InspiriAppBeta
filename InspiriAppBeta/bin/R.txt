@@ -332,11 +332,10 @@ int drawable wastebinclosedsmalltest 0x7f0200bb
 int drawable wastebinsmalltest 0x7f0200bc
 int drawable white_call_icon 0x7f0200bd
 int drawable wifibackground 0x7f0200be
-int drawable wifiicon 0x7f0200bf
-int drawable wifisymbol 0x7f0200c0
-int drawable wishlistremovebuttonselector 0x7f0200c1
-int drawable youngmindslayer 0x7f0200c2
-int drawable youngmindslogo 0x7f0200c3
+int drawable wireless 0x7f0200bf
+int drawable wishlistremovebuttonselector 0x7f0200c0
+int drawable youngmindslayer 0x7f0200c1
+int drawable youngmindslogo 0x7f0200c2
 int id ChildlineROILayout 0x7f050041
 int id ChildlineUKLayout 0x7f050043
 int id ContactButton1Life 0x7f05004a

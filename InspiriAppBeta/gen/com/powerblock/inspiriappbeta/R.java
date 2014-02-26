@@ -1013,11 +1013,10 @@ containing a value of this type.
         public static final int wastebinsmalltest=0x7f0200bc;
         public static final int white_call_icon=0x7f0200bd;
         public static final int wifibackground=0x7f0200be;
-        public static final int wifiicon=0x7f0200bf;
-        public static final int wifisymbol=0x7f0200c0;
-        public static final int wishlistremovebuttonselector=0x7f0200c1;
-        public static final int youngmindslayer=0x7f0200c2;
-        public static final int youngmindslogo=0x7f0200c3;
+        public static final int wireless=0x7f0200bf;
+        public static final int wishlistremovebuttonselector=0x7f0200c0;
+        public static final int youngmindslayer=0x7f0200c1;
+        public static final int youngmindslogo=0x7f0200c2;
     }
     public static final class id {
         public static final int ChildlineROILayout=0x7f050041;
