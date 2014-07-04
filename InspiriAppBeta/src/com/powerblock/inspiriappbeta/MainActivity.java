@@ -135,10 +135,20 @@ com.actionbarsherlock.app.ActionBar.TabListener, WishlistObservable {
 			Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 			startActivityForResult(intent, 0);
 		} else if(item.getItemId() == R.id.item_action_clear){
-			mImageView.setBackgroundColor(0000);
+			ClearBackground();
 			Toast.makeText(this, "Background Cleared", Toast.LENGTH_LONG).show();
 		}
 		return true;
+	}
+	
+	public void ClearBackground(){
+		mImageView.setImageResource(android.R.color.transparent);
+		String root = Environment.getExternalStorageDirectory().toString();
+		File myDir = new File(root + "/.InspiriAppBackground");
+		File file = new File(myDir,ImageEditor.BACKGROUND_FILE_NAME);
+		if(file.exists()){
+			file.delete();
+		}
 	}
 	
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -178,7 +188,6 @@ com.actionbarsherlock.app.ActionBar.TabListener, WishlistObservable {
 		BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inPreferredConfig = Bitmap.Config.ARGB_8888;
 		Bitmap bitmap = BitmapFactory.decodeFile(root + "/.InspiriAppBackground/"+ImageEditor.BACKGROUND_FILE_NAME, options);
-		//Drawable d = new BitmapDrawable(getResources(), bitmap);
 		mImageView.setImageBitmap(bitmap);
 	}
 
